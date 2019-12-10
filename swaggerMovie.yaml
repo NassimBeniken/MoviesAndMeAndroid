@@ -1,0 +1,138 @@
+swagger: "2.0"
+info:
+  description: "MicroService de l'application MoviesAndMe"
+  version: "1.0.0"
+  title: "MoviesAndMe Microservice"
+host: "calm-temple-90298.herokuapp.com"
+basePath: "/"
+tags:
+- name: "Movies"
+  description: "Manage the movies from the database"
+schemes:
+- "https"
+- "http"
+paths:
+  /:
+    get:
+      tags:
+      - "Movies"
+      summary: "Main page"
+      description: "Index of the microservice"
+      produces:
+      - "application/text"
+      responses:
+        200:
+          description: OK
+    
+  /Movies:
+    get:
+      tags:
+      - "Movies"
+      summary: "Get all movies"
+      description: ""
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "ok"
+        201:
+          description: "ok"
+            
+  /Movies/{id}:
+    get:
+      tags:
+      - "Movies"
+      summary: "Get a movie from its id"
+      description: "id of the movie to get"
+      parameters:
+      - in: path
+        name: id
+        type: integer
+        required: true
+      responses:
+        200:
+          description: OK
+  
+  /Movies/Delete/{id}:
+    delete:
+      tags:
+      - "Movies"
+      summary: "Delete a movie"
+      description: "Delete the movie with id"
+      parameters:
+      - in: path
+        name: id
+        type: integer
+        required: true
+      responses:
+        200:
+          description: OK
+  
+  /Movies/Create:
+    post:
+      tags:
+      - "Movies"
+      summary: "Create a new movie"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Movie"
+      responses:
+        200:
+          description: OK
+  
+  /Movies/Update/{id}:
+    put:
+      tags:
+      - "Movies"
+      summary: "Update a movie"
+      description: "Update a movie by entering its id and body"
+      produces:
+      - "application/json"
+      parameters:
+      - in: path
+        name: id
+        type: integer
+        required: true
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Movie"
+      responses:
+        200:
+          description: OK
+
+definitions:
+  Movie:
+    type: object
+    properties:
+      id:
+        type: integer
+      title:
+        type: string
+      year:
+        type: string
+      released:
+        type: string
+      genre:
+        type: string
+      image:
+        type: string
+      synopsis:
+        type: string
+    required: 
+      - id
+      - title
+      - year
+      - released
+      - genre
+      - image
+      - synopsis
