@@ -1,6 +1,7 @@
-Nom des membres actuels du groupe : 
+Android application which consists in a list of movies.
 
-BEN IKEN Nassim (@NassimBeniken)
-BENNOUKH Elyass (@Elyass)
+Each movies is clickable and when clicked, the movie details are displayed.
 
-L'application consiste en l'affichage d'une liste qui contient plusieurs films, et en cliquant sur un film, on peut avoir accès à son détail.
+The application works with a REST API which is deployed on Heroku : https://calm-temple-90298.herokuapp.com
+
+If Heroku is not accessible (no internet connection) or not available, the application keeps working thanks to an SQLite database.
